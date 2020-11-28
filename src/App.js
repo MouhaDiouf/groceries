@@ -13,15 +13,24 @@ function App() {
     e.preventDefault();
     console.log(e);
   };
-  <section className="section-center">
-    <form className="grocery-form" onSubmit={handleSubmit}>
-      {alert.show && <Alert />}
-    </form>
-    <div className="grocery-container">
-      <List />
-      <button className="clear-btn">clear items</button>
-    </div>
-  </section>;
+  return (
+    <section className="section-center">
+      <form className="grocery-form" onSubmit={handleSubmit}>
+        {alert.show && <Alert />}
+      </form>
+      <div className="grocery-container">
+        <h3>Grocery Bud</h3>
+        <div className="form-control">
+          <input type="text" />
+          <button type="submit" className="submit-btn">
+            {isEditing ? 'edit' : 'submit'}
+          </button>
+        </div>
+        <List />
+        <button className="clear-btn">clear items</button>
+      </div>
+    </section>
+  );
 }
 
 export default App;
