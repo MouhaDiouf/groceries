@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import List from './List';
 import Alert from './Alert';
 
@@ -16,6 +16,10 @@ function App() {
   const showAlert = (show = false, type = '', msg = '') => {
     setAlert({ show, type, msg });
   };
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list));
+  }, [list]);
 
   const clearList = () => {
     showAlert(true, 'danger', 'empty list');
